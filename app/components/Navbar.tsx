@@ -1,33 +1,83 @@
-import { Github, Linkedin } from 'lucide-react'
+'use client'
+
+import { Menu, X } from 'lucide-react'
 import Link from 'next/link'
+import { useEffect, useState } from 'react'
+
+const links = [
+  { name: 'Home', href: '#home' },
+  { name: 'About', href: '#about' },
+  { name: 'Skills', href: '#skills' },
+  { name: 'Projects', href: '#projects' },
+  { name: 'Contact', href: '#contact' },
+]
 
 const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 10) {
+        setScrolled(true)
+      } else {
+        setScrolled(false)
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   return (
-    <header className='flex justify-between items-center px-6 h-14 bg-[#1F1F1F] text-white'>
-      <Link href='/'>
-        <div>Carlan Henry</div>
-      </Link>
-      <nav className='flex items-center gap-6'>
-        <button type='button'>Skills</button>
-        <button type='button'>Projects</button>
-        <button type='button'>Contact</button>
-      </nav>
-      <div className='flex items-center gap-4'>
-        <a href='https://github.com/devcarlan' rel='nofollow' target='_blank'>
-          <div className='flex justify-center items-center w-10 h-10 border-2 border-solid border-white rounded-md'>
-            <Github className='w-4 h-4' />
-          </div>
-        </a>
-        <a
-          href='https://www.linkedin.com/in/carlan-henry-8aa5721b2/'
-          rel='nofollow'
-          target='_blank'
-        >
-          <div className='flex justify-center items-center w-10 h-10 border-2 border-solid border-white rounded-md'>
-            <Linkedin className='w-4 h-4' />
-          </div>
-        </a>
+    <header
+      className={`sticky top-0 w-full z-50 transition-all duration-300 ${
+        scrolled ? 'bg-white/80 backdrop-blur-md shadow-sm' : 'bg-transparent'
+      }`}
+    >
+      <div className='container max-w-full mx-auto px-4 sm:px-6 lg:px-8'>
+        <div className='flex justify-between items-center py-4'>
+          <Link href='#home' className='text-2xl font-bold'>
+            <span className='text-[#238b45]'>CH</span>
+          </Link>
+          <nav className='hidden md:flex space-x-8'>
+            {links.map((link) => (
+              <Link
+                key={link.name}
+                href={link.href}
+                className='hover:text-[#238b45] transition-colors'
+              >
+                {link.name}
+              </Link>
+            ))}
+          </nav>
+          <button
+            className='md:hidden text-[#333]'
+            onClick={() => setIsOpen((prev) => !prev)}
+            aria-label='Toggle menu'
+          >
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
+      {isOpen && (
+        <div className='md:hidden bg-white/95 backdrop-blur-md'>
+          <div className='container mx-auto px-4 py-4'>
+            <nav className='flex flex-col space-y-4'>
+              {links.map((link) => (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className='text-[#333] hover:text-[#238b45] transition-colors py-2'
+                  onClick={() => setIsOpen(false)}
+                >
+                  {link.name}
+                </Link>
+              ))}
+            </nav>
+          </div>
+        </div>
+      )}
     </header>
   )
 }
