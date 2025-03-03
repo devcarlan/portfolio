@@ -20,7 +20,7 @@ const Hero = () => {
             <button className='h-11 rounded-md px-8 bg-[#238b45] text-white hover:bg-[#238b45]/90'>
               <Link href='#projects'>View My Work</Link>
             </button>
-            <button className='h-11 rounded-md px-8 border bg-[#ededed] hover:bg-[#f1f5f9] hover:text-[#1e293b]'>
+            <button className='h-11 rounded-md px-8 border bg-[#fff] hover:bg-[#ededed] hover:text-[#1e293b]'>
               <Link href='#contact'>Contact Me</Link>
             </button>
           </div>
