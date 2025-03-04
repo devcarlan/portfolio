@@ -3,7 +3,7 @@ import Image from 'next/image'
 const About = () => {
   return (
     <section id='about' className='py-20 bg-[#f1f5f9]/30'>
-      <div className='container max-w-full mx-auto px-4 sm:px-6 lg:px-8'>
+      <div className='container mx-auto px-4 sm:px-6 lg:px-8'>
         <div className='flex flex-col md:flex-row items-center gap-12'>
           <div className='md:w-1/2 order-2 md:order-1'>
             <h2 className='text-3xl font-bold mb-6'>About Me</h2>
