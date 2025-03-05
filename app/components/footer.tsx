@@ -11,7 +11,6 @@ const Footer = () => {
           <Link href='/' className='text-2xl font-bold mb-6'>
             <span className='text-[#238b45]'>Carlan</span>Henry
           </Link>
-
           <div className='flex space-x-6 mb-8'>
             <Link
               href='https://github.com/devcarlan'
@@ -28,7 +27,6 @@ const Footer = () => {
               <span className='sr-only'>LinkedIn</span>
             </Link>
           </div>
-
           <div className='text-center text-sm text-[#09090b]/60'>
             <p>© {currentYear} Carlan Henry. All rights reserved.</p>
           </div>

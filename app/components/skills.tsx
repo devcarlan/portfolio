@@ -74,7 +74,6 @@ const Skills = () => {
             and proficiency levels.
           </p>
         </div>
-
         <div className='max-w-3xl mx-auto'>
           <div className='flex rounded-md bg-[#f1f5f9] p-1 mb-8'>
             {skillCategories.map((category) => (

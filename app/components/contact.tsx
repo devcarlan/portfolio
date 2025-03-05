@@ -20,7 +20,6 @@ const Contact = () => {
               opportunities? Feel free to reach out using the form below.
             </p>
           </div>
-
           <div className='max-w-md mx-auto'>
             <form onSubmit={handleSubmit} className='space-y-6'>
               <div className='grid sm:grid-cols-2 gap-6'>
@@ -50,7 +49,6 @@ const Contact = () => {
                   />
                 </div>
               </div>
-
               <div className='space-y-2'>
                 <label htmlFor='subject' className='text-sm font-medium'>
                   Subject
@@ -63,7 +61,6 @@ const Contact = () => {
                   required
                 />
               </div>
-
               <div className='space-y-2'>
                 <label htmlFor='message' className='text-sm font-medium'>
                   Message
@@ -77,7 +74,6 @@ const Contact = () => {
                   required
                 />
               </div>
-
               <button
                 type='submit'
                 className='flex items-center h-11 rounded-md px-8 bg-[#238b45] text-white hover:bg-[#238b45]/90 w-full sm:w-auto gap-2'

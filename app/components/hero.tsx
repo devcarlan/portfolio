@@ -26,13 +26,11 @@ const Hero = () => {
           </div>
         </div>
       </div>
-
       <div className='absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce hidden md:block'>
         <Link href='#about' aria-label='Scroll down'>
           <ArrowDown className='text-[#238b45]' size={32} />
         </Link>
       </div>
-
       <div className='absolute top-0 left-0 w-full h-full overflow-hidden -z-10'>
         <div className='absolute top-1/4 right-1/4 w-64 h-64 bg-[#238b45]/10 rounded-full filter blur-3xl'></div>
         <div className='absolute bottom-1/4 left-1/3 w-96 h-96 bg-[#f1f5f9]/10 rounded-full filter blur-3xl'></div>

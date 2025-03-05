@@ -36,7 +36,8 @@ const About = () => {
             <button className='inline-flex items-center h-11 px-4 gap-2 rounded-md border bg-[#fff] hover:bg-[#ededed] hover:text-[#1e293b]'>
               <FileText size={16} />
               Download Resume
-            </button> */}
+            </button> 
+            */}
           </div>
           <div className='md:w-1/2 order-1 md:order-2'>
             <div className='relative w-64 h-64 md:w-80 md:h-80 mx-auto rounded-full overflow-hidden border-4 border-[#238b45]/20'>

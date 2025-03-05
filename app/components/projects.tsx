@@ -43,7 +43,6 @@ const Projects = () => {
             specific problem or to learn and practice new technologies.
           </p>
         </div>
-
         <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-8'>
           {works.map((project, i) => (
             <div
@@ -74,7 +73,6 @@ const Projects = () => {
                     </div>
                   ))}
                 </div>
-
                 <div className='flex gap-4'>
                   <button className='flex items-center h-9 rounded-md px-3 gap-2 border border-[#e2e8f0] bg-white hover:bg-[#f1f5f9]'>
                     <Link
@@ -103,7 +101,6 @@ const Projects = () => {
             </div>
           ))}
         </div>
-
         <div className='text-center mt-12'>
           <button className='h-11 rounded-md px-8 bg-[#238b45] text-white hover:bg-[#238b45]/90'>
             <Link
