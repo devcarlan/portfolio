@@ -49,9 +49,12 @@ const Navbar = () => {
     >
       <div className='container max-w-full mx-auto px-4 sm:px-6 lg:px-8'>
         <div className='flex justify-between items-center py-4'>
-          <Link href='#home' className='text-2xl font-bold'>
+          <button
+            onClick={() => scrollToSection(heroRef)}
+            className='text-2xl font-bold'
+          >
             <span className='text-[#238b45]'>CH</span>
-          </Link>
+          </button>
           <nav className='hidden md:flex space-x-8'>
             {links.map((link) => (
               <button

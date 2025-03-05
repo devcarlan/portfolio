@@ -14,7 +14,12 @@ const PageContent = () => {
 
   return (
     <RefsProvider>
-      <Hero ref={heroRef} projectsRef={projectsRef} contactRef={contactRef} />
+      <Hero
+        ref={heroRef}
+        aboutRef={aboutRef}
+        projectsRef={projectsRef}
+        contactRef={contactRef}
+      />
       <About ref={aboutRef} />
       <Skills ref={skillsRef} />
       <Projects ref={projectsRef} />

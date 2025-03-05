@@ -1,16 +1,26 @@
 import { Github, Linkedin } from 'lucide-react'
 import Link from 'next/link'
+import { useRefs } from '../context/refsContext'
 
 const Footer = () => {
   const currentYear = new Date().getFullYear()
+
+  const { heroRef } = useRefs()
+
+  const scrollToSection = (ref: React.RefObject<HTMLDivElement>) => {
+    ref.current?.scrollIntoView({ behavior: 'smooth' })
+  }
 
   return (
     <footer className='bg-[#f1f5f9]/50 py-6'>
       <div className='container mx-auto px-4 sm:px-6 lg:px-8'>
         <div className='flex flex-col items-center'>
-          <Link href='/' className='text-2xl font-bold mb-6'>
+          <button
+            onClick={() => scrollToSection(heroRef)}
+            className='text-2xl font-bold mb-6'
+          >
             <span className='text-[#238b45]'>Carlan</span>Henry
-          </Link>
+          </button>
           <div className='flex space-x-6 mb-8'>
             <Link
               href='https://github.com/devcarlan'
