@@ -46,8 +46,7 @@ const About = ({ ref }: propTypes) => {
           <div className='md:w-1/2 order-1 md:order-2'>
             <div className='relative w-64 h-64 md:w-80 md:h-80 mx-auto rounded-full overflow-hidden border-4 border-[#238b45]/20'>
               <Image
-                //replace placeholder with actual image
-                src='/placeholder.svg?height=320&width=320'
+                src='/me.jpeg'
                 alt='Carlan'
                 fill
                 className='object-cover'

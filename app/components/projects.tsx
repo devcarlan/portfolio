@@ -12,7 +12,7 @@ const Projects = ({ ref }: propTypes) => {
       title: 'Casual Streams',
       description:
         'A service to help connect viewers with smaller streamers. Interfacing with the Twitch API and built with Next.js and TailwindCSS.',
-      image: '/placehold.svg',
+      image: '/casualstreams.jpg',
       tags: ['Next.js', 'React', 'Tailwind CSS', 'Twitch API'],
       liveUrl: 'https://casualstreams.vercel.app/',
       githubUrl: 'https://github.com/devcarlan/casualstreams',
@@ -21,7 +21,7 @@ const Projects = ({ ref }: propTypes) => {
       title: 'West Tech Shipping',
       description:
         'A redesign of the front page for the caribbean shipping company West Tech. Built with Next.js and TailwindCSS.',
-      image: '/placehold.svg',
+      image: '/wtech.jpg',
       tags: ['Next.js', 'React', 'Tailwind CSS'],
       liveUrl: 'https://devcarlan.github.io/wtech/',
       githubUrl: 'https://github.com/devcarlan/wtech',
@@ -30,7 +30,7 @@ const Projects = ({ ref }: propTypes) => {
       title: 'Portfolio Website',
       description:
         'A modern portfolio website showcasing my projects and skills. Built with Next.js and Tailwind CSS.',
-      image: '/placehold.svg',
+      image: '/portfolio.jpg',
       tags: ['Next.js', 'React', 'Tailwind CSS'],
       liveUrl: 'https://www.carlan.dev',
       githubUrl: 'https://github.com/devcarlan/portfolio',
@@ -54,12 +54,7 @@ const Projects = ({ ref }: propTypes) => {
               className='rounded-lg bg-white text-[#09090b] overflow-hidden border-0 shadow-md hover:shadow-lg transition-shadow'
             >
               <div className='relative h-48 w-full'>
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  fill
-                  className='object-cover'
-                />
+                <Image src={project.image} alt={project.title} fill />
               </div>
               <div className='p-6 pt-0'>
                 <h3 className='text-xl font-bold mt-4 mb-2'>{project.title}</h3>
