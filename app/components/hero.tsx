@@ -1,9 +1,20 @@
 import { ArrowDown } from 'lucide-react'
 import Link from 'next/link'
 
-const Hero = () => {
+type propTypes = {
+  ref: React.Ref<HTMLDivElement>
+  projectsRef: React.RefObject<HTMLDivElement>
+  contactRef: React.RefObject<HTMLDivElement>
+}
+
+const Hero = ({ ref, projectsRef, contactRef }: propTypes) => {
+  const handleScrollToElement = (ref: React.RefObject<HTMLDivElement>) => {
+    ref.current?.scrollIntoView({ behavior: 'smooth' })
+  }
+
   return (
     <section
+      ref={ref}
       id='home'
       className='relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden'
     >
@@ -17,11 +28,17 @@ const Hero = () => {
             experiences with React and Next.js
           </p>
           <div className='flex flex-col sm:flex-row gap-4 justify-center'>
-            <button className='h-11 rounded-md px-8 bg-[#238b45] text-white hover:bg-[#238b45]/90'>
-              <Link href='#projects'>View My Work</Link>
+            <button
+              onClick={() => handleScrollToElement(projectsRef)}
+              className='h-11 rounded-md px-8 bg-[#238b45] text-white hover:bg-[#238b45]/90'
+            >
+              View My Work
             </button>
-            <button className='h-11 rounded-md px-8 border bg-[#fff] hover:bg-[#ededed] hover:text-[#1e293b]'>
-              <Link href='#contact'>Contact Me</Link>
+            <button
+              onClick={() => handleScrollToElement(contactRef)}
+              className='h-11 rounded-md px-8 border bg-[#fff] hover:bg-[#ededed] hover:text-[#1e293b]'
+            >
+              Contact Me
             </button>
           </div>
         </div>

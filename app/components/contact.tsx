@@ -3,14 +3,18 @@
 import { Send } from 'lucide-react'
 import { useState } from 'react'
 
-const Contact = () => {
+type propTypes = {
+  ref: React.Ref<HTMLDivElement>
+}
+
+const Contact = ({ ref }: propTypes) => {
   const [isSubmitting, setIsSubmitting] = useState(false)
 
   const handleSubmit = () => {
     console.log('submitted')
   }
   return (
-    <section id='contact' className='py-20'>
+    <section ref={ref} id='contact' className='py-20'>
       <div className='container mx-auto px-4 sm:px-6 lg:px-8'>
         <div className='max-w-5xl mx-auto'>
           <div className='text-center mb-16'>
@@ -76,7 +80,7 @@ const Contact = () => {
               </div>
               <button
                 type='submit'
-                className='flex items-center h-11 rounded-md px-8 bg-[#238b45] text-white hover:bg-[#238b45]/90 w-full sm:w-auto gap-2'
+                className='flex justify-center items-center h-11 rounded-md px-8 bg-[#238b45] text-white hover:bg-[#238b45]/90 w-full sm:w-auto gap-2'
                 disabled={isSubmitting}
               >
                 {isSubmitting ? (

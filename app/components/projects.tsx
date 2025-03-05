@@ -2,7 +2,11 @@ import { ExternalLink, Github } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 
-const Projects = () => {
+type propTypes = {
+  ref: React.Ref<HTMLDivElement>
+}
+
+const Projects = ({ ref }: propTypes) => {
   const works = [
     {
       title: 'Casual Streams',
@@ -34,7 +38,7 @@ const Projects = () => {
   ]
 
   return (
-    <section id='projects' className='py-20 bg-[#f1f5f9]/30'>
+    <section ref={ref} id='projects' className='py-20 bg-[#f1f5f9]/30'>
       <div className='container mx-auto px-4 sm:px-6 lg:px-8'>
         <div className='max-w-3xl mx-auto text-center mb-16'>
           <h2 className='text-3xl font-bold mb-4'>My Projects</h2>

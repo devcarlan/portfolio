@@ -3,18 +3,30 @@
 import { Menu, X } from 'lucide-react'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
-
-const links = [
-  { name: 'Home', href: '#home' },
-  { name: 'About', href: '#about' },
-  { name: 'Skills', href: '#skills' },
-  { name: 'Projects', href: '#projects' },
-  { name: 'Contact', href: '#contact' },
-]
+import { useRefs } from '../context/refsContext'
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+
+  const { heroRef, aboutRef, skillsRef, projectsRef, contactRef } = useRefs()
+
+  const links = [
+    { name: 'Home', ref: heroRef },
+    { name: 'About', ref: aboutRef },
+    { name: 'Skills', ref: skillsRef },
+    { name: 'Projects', ref: projectsRef },
+    { name: 'Contact', ref: contactRef },
+  ]
+
+  const scrollToSection = (ref: React.RefObject<HTMLDivElement>) => {
+    ref.current?.scrollIntoView({ behavior: 'smooth' })
+  }
+
+  const handleMenuItemClick = (ref: React.RefObject<HTMLDivElement>) => {
+    setIsOpen(false)
+    scrollToSection(ref)
+  }
 
   useEffect(() => {
     const handleScroll = () => {
@@ -42,13 +54,13 @@ const Navbar = () => {
           </Link>
           <nav className='hidden md:flex space-x-8'>
             {links.map((link) => (
-              <Link
+              <button
                 key={link.name}
-                href={link.href}
+                onClick={() => scrollToSection(link.ref)}
                 className='hover:text-[#238b45] transition-colors'
               >
                 {link.name}
-              </Link>
+              </button>
             ))}
           </nav>
           <button
@@ -65,14 +77,13 @@ const Navbar = () => {
           <div className='container mx-auto px-4 py-4'>
             <nav className='flex flex-col space-y-4'>
               {links.map((link) => (
-                <Link
+                <button
                   key={link.name}
-                  href={link.href}
                   className='text-[#333] hover:text-[#238b45] transition-colors py-2'
-                  onClick={() => setIsOpen(false)}
+                  onClick={() => handleMenuItemClick(link.ref)}
                 >
                   {link.name}
-                </Link>
+                </button>
               ))}
             </nav>
           </div>

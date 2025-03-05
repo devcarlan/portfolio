@@ -1,7 +1,7 @@
 'use client'
 
 import { Database, Layout, Terminal } from 'lucide-react'
-import { useState } from 'react'
+import { Fragment, useState } from 'react'
 import CSS from './icons/css'
 import HTML from './icons/html'
 import JS from './icons/js'
@@ -10,7 +10,11 @@ import React from './icons/react'
 import Tailwind from './icons/tailwind'
 import Progress from './progress'
 
-const Skills = () => {
+type propTypes = {
+  ref: React.Ref<HTMLDivElement>
+}
+
+const Skills = ({ ref }: propTypes) => {
   const [activeTab, setActiveTab] = useState('frontend')
 
   const skillCategories = [
@@ -64,7 +68,7 @@ const Skills = () => {
     },
   ]
   return (
-    <section id='skills' className='py-20'>
+    <section ref={ref} id='skills' className='py-20'>
       <div className='container mx-auto px-4 sm:px-6 lg:px-8'>
         <div className='max-w-3xl mx-auto text-center mb-16'>
           <h2 className='text-3xl font-bold mb-4'>My Skills</h2>
@@ -116,18 +120,18 @@ const Skills = () => {
           </div>
         </div>
         <div className='mt-16 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6 max-w-4xl mx-auto'>
-          {technologies.map((tech) => (
-            <>
-              {tech.types.map((type, i) => (
+          {technologies.map((tech, i) => (
+            <Fragment key={i}>
+              {tech.types.map((type, j) => (
                 <div
-                  key={i}
+                  key={j}
                   className='flex flex-col items-center justify-center p-4 bg-[#f1f5f9]/50 rounded-lg hover:bg-[#f1f5f9] transition-colors'
                 >
                   {type.icon}
                   <span className='mt-1 text-sm font-medium'>{type.title}</span>
                 </div>
               ))}
-            </>
+            </Fragment>
           ))}
         </div>
       </div>
