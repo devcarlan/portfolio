@@ -1,6 +1,6 @@
 import { Github, Linkedin } from 'lucide-react'
 import Link from 'next/link'
-import { useRefs } from '../context/refsContext'
+import { useRefs } from '../context/RefsContext'
 
 const Footer = () => {
   const currentYear = new Date().getFullYear()

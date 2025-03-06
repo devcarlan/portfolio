@@ -7,7 +7,7 @@ import Hero from './components/hero'
 import Navbar from './components/navbar'
 import Projects from './components/projects'
 import Skills from './components/skills'
-import { RefsProvider, useRefs } from './context/refsContext'
+import { RefsProvider, useRefs } from './context/RefsContext'
 
 const PageContent = () => {
   const { heroRef, aboutRef, skillsRef, projectsRef, contactRef } = useRefs()

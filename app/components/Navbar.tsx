@@ -1,9 +1,8 @@
 'use client'
 
 import { Menu, X } from 'lucide-react'
-import Link from 'next/link'
 import { useEffect, useState } from 'react'
-import { useRefs } from '../context/refsContext'
+import { useRefs } from '../context/RefsContext'
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
