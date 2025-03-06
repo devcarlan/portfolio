@@ -1,13 +1,14 @@
 export type ContactFormData = {
   name: string
   email: string
-  subject: string
+  company: string
   message: string
 }
 
 export type ActionResponse = {
   success: boolean
   message: string
+  fieldData?: ContactFormData
   errors?: {
     [K in keyof ContactFormData]?: string[]
   }

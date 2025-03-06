@@ -41,6 +41,7 @@ const Contact = ({ ref }: propTypes) => {
                     } bg-[#fff] px-3 py-2 text-sm ring-offset-[#fff] placeholder:text-[#64748b] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#238b45] focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50`}
                     id='name'
                     name='name'
+                    defaultValue={data?.fieldData?.name}
                     placeholder='Your name'
                     required
                   />
@@ -61,6 +62,7 @@ const Contact = ({ ref }: propTypes) => {
                     id='email'
                     name='email'
                     type='email'
+                    defaultValue={data?.fieldData?.email}
                     placeholder='Your email'
                     required
                   />
@@ -73,20 +75,21 @@ const Contact = ({ ref }: propTypes) => {
               </div>
               <div className='space-y-2'>
                 <label htmlFor='subject' className='text-sm font-medium'>
-                  Subject
+                  Company
                 </label>
                 <input
                   className={`flex h-10 w-full rounded-md border ${
-                    data?.errors?.subject ? 'border-red' : 'border-[#e2e8f0]'
+                    data?.errors?.company ? 'border-red' : 'border-[#e2e8f0]'
                   } bg-[#fff] px-3 py-2 text-sm ring-offset-[#fff] placeholder:text-[#64748b] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#238b45] focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50`}
-                  id='subject'
-                  name='subject'
-                  placeholder='Subject of your message'
+                  id='company'
+                  name='company'
+                  defaultValue={data?.fieldData?.company}
+                  placeholder='Company (Optional)'
                   required
                 />
-                {data?.errors?.subject && (
+                {data?.errors?.company && (
                   <p className='text-sm text-red-500'>
-                    {data.errors.subject[0]}
+                    {data.errors.company[0]}
                   </p>
                 )}
               </div>
@@ -100,6 +103,7 @@ const Contact = ({ ref }: propTypes) => {
                   } bg-[#fff] px-3 py-2 text-sm ring-offset-[#fff] placeholder:text-[#64748b] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#238b45] focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50`}
                   id='message'
                   name='message'
+                  defaultValue={data?.fieldData?.message}
                   placeholder='Your message'
                   rows={5}
                   required
