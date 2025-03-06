@@ -7,6 +7,7 @@ const Footer = () => {
 
   const { heroRef } = useRefs()
 
+  //scroll to top
   const scrollToSection = (ref: React.RefObject<HTMLDivElement>) => {
     ref.current?.scrollIntoView({ behavior: 'smooth' })
   }
