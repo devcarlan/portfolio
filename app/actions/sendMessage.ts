@@ -45,7 +45,6 @@ export const sendMessage = async (
   prevState: ActionResponse | null,
   formData: FormData
 ) => {
-  'use server'
   try {
     const rawFormData: ContactFormData = {
       name: formData.get('name') as string,
@@ -76,7 +75,7 @@ export const sendMessage = async (
   } catch {
     return {
       success: false,
-      message: 'An unexpected error occurred',
+      message: 'An unexpected error occurred.',
     }
   }
 }
