@@ -2,7 +2,8 @@
 
 import { ActionResponse } from '@/types/contact'
 import { Send } from 'lucide-react'
-import { useActionState } from 'react'
+import { useActionState, useEffect } from 'react'
+import toast, { Toaster } from 'react-hot-toast'
 import { sendMessage } from '../actions/sendMessage'
 
 type propTypes = {
@@ -17,6 +18,13 @@ const initialState: ActionResponse = {
 const Contact = ({ ref }: propTypes) => {
   const [data, action, isPending] = useActionState(sendMessage, initialState)
 
+  useEffect(() => {
+    const success = () => {
+      if (data.success) toast.success('Message Sent!', { duration: 4000 })
+    }
+
+    success()
+  }, [data.success])
   return (
     <section ref={ref} id='contact' className='py-20'>
       <div className='container mx-auto px-4 sm:px-6 lg:px-8'>
@@ -85,7 +93,6 @@ const Contact = ({ ref }: propTypes) => {
                   name='company'
                   defaultValue={data?.fieldData?.company}
                   placeholder='Company (Optional)'
-                  required
                 />
                 {data?.errors?.company && (
                   <p className='text-sm text-red-500'>
@@ -132,6 +139,7 @@ const Contact = ({ ref }: propTypes) => {
           </div>
         </div>
       </div>
+      <Toaster position='bottom-center' />
     </section>
   )
 }
