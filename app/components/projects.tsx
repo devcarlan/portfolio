@@ -35,6 +35,15 @@ const Projects = ({ ref }: propTypes) => {
       liveUrl: 'https://www.carlan.dev',
       githubUrl: 'https://github.com/devcarlan/portfolio',
     },
+    {
+      title: 'Dare2Care Outreach',
+      description:
+        'A WordPress custom theme website for the non-profit Dare2Care Outreach. Built with WordPress, HTML and CSS.',
+      image: '/d2c.jpg',
+      tags: ['Wordpress', 'HTML', 'CSS'],
+      liveUrl: 'https://dare2careoutreach.org/',
+      githubUrl: 'Private',
+    },
   ]
 
   return (
@@ -84,17 +93,19 @@ const Projects = ({ ref }: propTypes) => {
                       Live Demo
                     </Link>
                   </button>
-                  <button className='h-9 rounded-md px-3 gap-2 border border-[#e2e8f0] bg-white hover:bg-[#f1f5f9]'>
-                    <Link
-                      href={project.githubUrl}
-                      target='_blank'
-                      rel='noopener noreferrer'
-                      className='flex items-center gap-2'
-                    >
-                      <Github size={14} />
-                      Code
-                    </Link>
-                  </button>
+                  {project.githubUrl !== 'Private' && (
+                    <button className='h-9 rounded-md px-3 gap-2 border border-[#e2e8f0] bg-white hover:bg-[#f1f5f9]'>
+                      <Link
+                        href={project.githubUrl}
+                        target='_blank'
+                        rel='noopener noreferrer'
+                        className='flex items-center gap-2'
+                      >
+                        <Github size={14} />
+                        Code
+                      </Link>
+                    </button>
+                  )}
                 </div>
               </div>
             </div>
