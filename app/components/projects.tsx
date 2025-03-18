@@ -40,7 +40,7 @@ const Projects = ({ ref }: propTypes) => {
       description:
         'A WordPress custom theme website for the non-profit Dare2Care Outreach. Built with WordPress, HTML and CSS.',
       image: '/d2c.jpg',
-      tags: ['Wordpress', 'HTML', 'CSS'],
+      tags: ['WordPress', 'HTML', 'CSS'],
       liveUrl: 'https://dare2careoutreach.org/',
       githubUrl: 'Private',
     },
