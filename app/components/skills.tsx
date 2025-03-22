@@ -79,7 +79,7 @@ const Skills = ({ ref }: propTypes) => {
           </p>
         </div>
         <div className='max-w-3xl mx-auto'>
-          <div className='flex rounded-md bg-[#f1f5f9] p-1 mb-8'>
+          <div className='flex rounded-md bg-[#f1f5f9] dark:bg-[#f1f5f9] p-1 mb-8'>
             {skillCategories.map((category) => (
               <button
                 key={category.id}
@@ -87,7 +87,7 @@ const Skills = ({ ref }: propTypes) => {
                 className={`flex items-center justify-center gap-2 flex-1 px-3 py-2 text-sm font-medium rounded-sm transition-all
                   ${
                     activeTab === category.id
-                      ? 'bg-white text-[#333] shadow-sm'
+                      ? 'bg-white text-[#333] shadow-sm dark:bg-white dark:text-[#333]'
                       : 'text-[#64748b] hover:text-[#333]'
                   }`}
               >

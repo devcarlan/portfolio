@@ -36,7 +36,7 @@ const Hero = ({ ref, aboutRef, projectsRef, contactRef }: propTypes) => {
             </button>
             <button
               onClick={() => handleScrollToElement(contactRef)}
-              className='h-11 rounded-md px-8 border bg-[#fff] hover:bg-[#ededed] hover:text-[#1e293b]'
+              className='h-11 rounded-md px-8 border bg-[#fff] hover:bg-[#ededed] hover:text-[#1e293b] dark:bg-[#fff]'
             >
               Contact Me
             </button>
