@@ -1,21 +1,15 @@
 import type { Metadata } from 'next'
-import localFont from 'next/font/local'
+import { Noto_Sans } from 'next/font/google'
 import './globals.css'
 
-const geistSans = localFont({
-  src: './fonts/GeistVF.woff',
-  variable: '--font-geist-sans',
-  weight: '100 900',
-})
-const geistMono = localFont({
-  src: './fonts/GeistMonoVF.woff',
-  variable: '--font-geist-mono',
-  weight: '100 900',
+const noto = Noto_Sans({
+  subsets: ['latin'],
 })
 
 export const metadata: Metadata = {
-  title: 'Carlan Henry',
-  description: "Carlan Henry's Portfolio Site",
+  title: "Carlan Henry's Portfolio Site",
+  description:
+    'Carlan Henry | Front End Developer | Back End Developer | FullStack Developer',
 }
 
 export default function RootLayout({
@@ -25,9 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${noto.className} antialiased`}>
         <div className='min-h-screen flex flex-col'>{children}</div>
       </body>
     </html>
