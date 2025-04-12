@@ -3,7 +3,7 @@ export type ContactFormData = {
   email: string
   company: string
   message: string
-  more: string
+  more?: string
 }
 
 export type ActionResponse = {

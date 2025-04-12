@@ -43,7 +43,7 @@ const sendMail = async (data: ContactFormData) => {
 }
 
 export const sendMessage = async (
-  prevState: ActionResponse | null,
+  prevState: ActionResponse,
   formData: FormData
 ) => {
   try {
@@ -55,7 +55,7 @@ export const sendMessage = async (
       more: formData.get('more') as string,
     }
 
-    if (rawFormData.more !== '') return
+    if (rawFormData.more !== '') throw new Error('Bad bot!')
 
     const validatedData = validationSchema.safeParse(rawFormData)
 
