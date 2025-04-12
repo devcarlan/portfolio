@@ -9,6 +9,7 @@ const validationSchema = z.object({
   email: z.string().min(1, 'Email is required.'),
   company: z.string(),
   message: z.string().min(1, 'Message is required.'),
+  more: z.string(),
 })
 
 const sendMail = async (data: ContactFormData) => {
@@ -51,7 +52,10 @@ export const sendMessage = async (
       email: formData.get('email') as string,
       company: formData.get('company') as string,
       message: formData.get('message') as string,
+      more: formData.get('more') as string,
     }
+
+    if (rawFormData.more !== '') return
 
     const validatedData = validationSchema.safeParse(rawFormData)
 
@@ -63,14 +67,14 @@ export const sendMessage = async (
       }
     }
 
-    const { name, email, company, message } = validatedData.data
+    const { name, email, company, message, more } = validatedData.data
 
     await sendMail(validatedData.data)
 
     return {
       success: true,
       message: 'Your message has been sent!',
-      fieldData: { name, email, company, message },
+      fieldData: { name, email, company, message, more },
     }
   } catch {
     return {

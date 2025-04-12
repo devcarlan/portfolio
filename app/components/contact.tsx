@@ -124,6 +124,7 @@ const Contact = ({ ref }: propTypes) => {
                   </p>
                 )}
               </div>
+              <input type='hidden' name='more' value='' />
               <button
                 type='submit'
                 className='flex justify-center items-center h-11 rounded-md px-8 bg-[#238b45] text-white hover:bg-[#238b45]/90 w-full sm:w-auto gap-2'
