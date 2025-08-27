@@ -6,16 +6,12 @@ import { useActionState, useEffect } from 'react'
 import toast, { Toaster } from 'react-hot-toast'
 import { sendMessage } from '../actions/sendMessage'
 
-type propTypes = {
-  ref: React.Ref<HTMLDivElement>
-}
-
 const initialState: ActionResponse = {
   success: false,
   message: '',
 }
 
-const Contact = ({ ref }: propTypes) => {
+const Contact = () => {
   const [data, action, isPending] = useActionState(sendMessage, initialState)
 
   useEffect(() => {
@@ -26,7 +22,7 @@ const Contact = ({ ref }: propTypes) => {
     success()
   }, [data.success])
   return (
-    <section ref={ref} id='contact' className='py-20'>
+    <section id='contact' className='py-20 scroll-mt-[285px] md:scroll-mt-0'>
       <div className='container mx-auto px-4 sm:px-6 lg:px-8'>
         <div className='max-w-5xl mx-auto'>
           <div className='text-center mb-16'>

@@ -1,3 +1,5 @@
+//deprecated
+
 import { createContext, useContext, useRef } from 'react'
 
 type RefsContextType = {

@@ -1,30 +1,31 @@
 'use client'
 
 import { Menu, X } from 'lucide-react'
+import Link from 'next/link'
 import { useEffect, useState } from 'react'
-import { useRefs } from '../context/RefsContext'
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
 
-  const { heroRef, aboutRef, skillsRef, projectsRef, contactRef } = useRefs()
-
   const links = [
-    { name: 'Home', ref: heroRef },
-    { name: 'About', ref: aboutRef },
-    { name: 'Skills', ref: skillsRef },
-    { name: 'Projects', ref: projectsRef },
-    { name: 'Contact', ref: contactRef },
+    { name: 'Home' },
+    { name: 'About' },
+    { name: 'Skills' },
+    { name: 'Projects' },
+    { name: 'Contact' },
   ]
 
-  const scrollToSection = (ref: React.RefObject<HTMLDivElement>) => {
-    ref.current?.scrollIntoView({ behavior: 'smooth' })
-  }
+  const handleMenuItemClick = (
+    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
+    id: string
+  ) => {
+    e.preventDefault()
 
-  const handleMenuItemClick = (ref: React.RefObject<HTMLDivElement>) => {
     setIsOpen(false)
-    scrollToSection(ref)
+
+    const ele = document.getElementById(id)
+    ele?.scrollIntoView({ behavior: 'smooth' })
   }
 
   useEffect(() => {
@@ -48,21 +49,18 @@ const Navbar = () => {
     >
       <div className='container max-w-full mx-auto px-4 sm:px-6 lg:px-8'>
         <div className='flex justify-between items-center py-4'>
-          <button
-            onClick={() => scrollToSection(heroRef)}
-            className='text-2xl font-bold'
-          >
+          <Link href='/' className='text-2xl font-bold'>
             <span className='text-[#238b45]'>CH</span>
-          </button>
+          </Link>
           <nav className='hidden md:flex space-x-8'>
             {links.map((link) => (
-              <button
+              <a
                 key={link.name}
-                onClick={() => scrollToSection(link.ref)}
-                className='hover:text-[#238b45] transition-colors'
+                onClick={(e) => handleMenuItemClick(e, link.name.toLowerCase())}
+                className='hover:text-[#238b45] transition-colors cursor-pointer'
               >
                 {link.name}
-              </button>
+              </a>
             ))}
           </nav>
           <button
@@ -79,13 +77,15 @@ const Navbar = () => {
           <div className='container mx-auto px-4 py-4'>
             <nav className='flex flex-col space-y-4'>
               {links.map((link) => (
-                <button
+                <a
                   key={link.name}
                   className='text-[#333] hover:text-[#238b45] transition-colors py-2'
-                  onClick={() => handleMenuItemClick(link.ref)}
+                  onClick={(e) =>
+                    handleMenuItemClick(e, link.name.toLowerCase())
+                  }
                 >
                   {link.name}
-                </button>
+                </a>
               ))}
             </nav>
           </div>

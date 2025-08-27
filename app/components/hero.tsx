@@ -1,20 +1,20 @@
+'use client'
+
 import { ArrowDown } from 'lucide-react'
 
-type propTypes = {
-  ref: React.Ref<HTMLDivElement>
-  aboutRef: React.RefObject<HTMLDivElement>
-  projectsRef: React.RefObject<HTMLDivElement>
-  contactRef: React.RefObject<HTMLDivElement>
+const handleScrollToElement = (
+  e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
+  id: string
+) => {
+  e.preventDefault()
+
+  const ele = document.getElementById(id)
+  ele?.scrollIntoView({ behavior: 'smooth' })
 }
 
-const Hero = ({ ref, aboutRef, projectsRef, contactRef }: propTypes) => {
-  const handleScrollToElement = (ref: React.RefObject<HTMLDivElement>) => {
-    ref.current?.scrollIntoView({ behavior: 'smooth' })
-  }
-
+const Hero = () => {
   return (
     <section
-      ref={ref}
       id='home'
       className='relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden'
     >
@@ -28,28 +28,29 @@ const Hero = ({ ref, aboutRef, projectsRef, contactRef }: propTypes) => {
             experiences with React and Next.js
           </p>
           <div className='flex flex-col sm:flex-row gap-4 justify-center'>
-            <button
-              onClick={() => handleScrollToElement(projectsRef)}
-              className='h-11 rounded-md px-8 bg-[#238b45] text-white hover:bg-[#238b45]/90'
+            <a
+              onClick={(e) => handleScrollToElement(e, 'projects')}
+              className='flex items-center  justify-center h-11 rounded-md px-8 bg-[#238b45] text-white hover:bg-[#238b45]/90 cursor-pointer'
             >
               View My Work
-            </button>
-            <button
-              onClick={() => handleScrollToElement(contactRef)}
-              className='h-11 rounded-md px-8 border bg-[#fff] hover:bg-[#ededed] hover:text-[#1e293b] dark:bg-[#fff]'
+            </a>
+            <a
+              onClick={(e) => handleScrollToElement(e, 'contact')}
+              className='flex items-center  justify-center h-11 rounded-md px-8 border bg-[#fff] hover:bg-[#ededed] hover:text-[#1e293b] dark:bg-[#fff] cursor-pointer'
             >
               Contact Me
-            </button>
+            </a>
           </div>
         </div>
       </div>
       <div className='absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce hidden md:block'>
-        <button
-          onClick={() => handleScrollToElement(aboutRef)}
+        <a
+          onClick={(e) => handleScrollToElement(e, 'about')}
           aria-label='Scroll down'
+          className='cursor-pointer'
         >
           <ArrowDown className='text-[#238b45]' size={32} />
-        </button>
+        </a>
       </div>
       <div className='absolute top-0 left-0 w-full h-full overflow-hidden -z-10'>
         <div className='absolute top-1/4 right-1/4 w-64 h-64 bg-[#238b45]/10 rounded-full filter blur-3xl'></div>

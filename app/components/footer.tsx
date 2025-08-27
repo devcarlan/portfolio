@@ -1,27 +1,31 @@
+'use client'
+
 import { Github, Linkedin } from 'lucide-react'
 import Link from 'next/link'
-import { useRefs } from '../context/RefsContext'
 
 const Footer = () => {
   const currentYear = new Date().getFullYear()
 
-  const { heroRef } = useRefs()
+  const handleToTopClick = (
+    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
+    id: string
+  ) => {
+    e.preventDefault()
 
-  //scroll to top
-  const scrollToSection = (ref: React.RefObject<HTMLDivElement>) => {
-    ref.current?.scrollIntoView({ behavior: 'smooth' })
+    const ele = document.getElementById(id)
+    ele?.scrollIntoView({ behavior: 'smooth' })
   }
 
   return (
     <footer className='bg-[#f1f5f9]/50 py-6'>
       <div className='container mx-auto px-4 sm:px-6 lg:px-8'>
         <div className='flex flex-col items-center'>
-          <button
-            onClick={() => scrollToSection(heroRef)}
-            className='text-2xl font-bold mb-6'
+          <a
+            onClick={(e) => handleToTopClick(e, 'home')}
+            className='text-2xl font-bold mb-6 cursor-pointer'
           >
             <span className='text-[#238b45]'>Carlan</span>Henry
-          </button>
+          </a>
           <div className='flex space-x-6 mb-8'>
             <Link
               href='https://github.com/devcarlan'

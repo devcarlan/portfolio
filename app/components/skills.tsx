@@ -10,11 +10,7 @@ import React from './icons/react'
 import Tailwind from './icons/tailwind'
 import Progress from './progress'
 
-type propTypes = {
-  ref: React.Ref<HTMLDivElement>
-}
-
-const Skills = ({ ref }: propTypes) => {
+const Skills = () => {
   const [activeTab, setActiveTab] = useState('frontend')
 
   const skillCategories = [
@@ -68,7 +64,7 @@ const Skills = ({ ref }: propTypes) => {
     },
   ]
   return (
-    <section ref={ref} id='skills' className='py-20'>
+    <section id='skills' className='py-20 scroll-mt-[285px] md:scroll-mt-0'>
       <div className='container mx-auto px-4 sm:px-6 lg:px-8'>
         <div className='max-w-3xl mx-auto text-center mb-16'>
           <h2 className='text-3xl font-bold mb-4'>My Skills</h2>
