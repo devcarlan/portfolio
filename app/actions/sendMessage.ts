@@ -53,7 +53,10 @@ export const sendMessage = async (
       message: formData.get('message') as string,
     }
 
-    if (formData.get('more') !== '') throw new Error('Bad bot!')
+    const bot = formData.get('more') as string
+
+    if (bot || bot.trim().length > 0) throw new Error('Bad bot!')
+    if (rawFormData.message.length > 1500) throw new Error('Message too long.')
 
     const validatedData = validationSchema.safeParse(rawFormData)
 
