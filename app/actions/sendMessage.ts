@@ -58,6 +58,11 @@ export const sendMessage = async (
     if (bot || bot.trim().length > 0) throw new Error('Bad bot!')
     if (rawFormData.message.length > 1500) throw new Error('Message too long.')
 
+    const urlRegex = /(https?:\/\/|www\.)\S+/i
+    if (urlRegex.test(rawFormData.message)) {
+      throw new Error('No links!.')
+    }
+
     const validatedData = validationSchema.safeParse(rawFormData)
 
     if (!validatedData.success) {
